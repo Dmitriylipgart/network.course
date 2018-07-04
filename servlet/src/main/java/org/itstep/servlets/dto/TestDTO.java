@@ -10,24 +10,30 @@ public class TestDTO {
         return keyMap;
     }
 
-    public void setKeyMap(String keyMap) {
+    public TestDTO setKeyMap(String keyMap) {
+
         this.keyMap = keyMap;
+        return this;
     }
 
     public String getValueMap() {
         return valueMap;
     }
 
-    public void setValueMap(String valueMap) {
+    public TestDTO setValueMap(String valueMap) {
+
         this.valueMap = valueMap;
+        return this;
     }
 
     public String getValueList() {
         return valueList;
     }
 
-    public void setValueList(String valueList) {
+    public TestDTO setValueList(String valueList) {
+
         this.valueList = valueList;
+        return this;
     }
 
 

@@ -53,6 +53,5 @@ public class Upload extends HttpServlet{
 
         printWriter.write("Файл " + file.getName() + " сохранен в " + file.getAbsolutePath() + " Описание: " + description);
 
-
     }
 }

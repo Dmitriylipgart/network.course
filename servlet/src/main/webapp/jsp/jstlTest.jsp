@@ -7,5 +7,13 @@
 </head>
 <body>
     ${myVar}
+
+<c:forEach var="num" items="${myVar}">
+    <p>
+            ${num.keyMap}
+            ${num.valueMap}
+            ${num.valueList}
+    </p>
+</c:forEach>
 </body>
 </html>
