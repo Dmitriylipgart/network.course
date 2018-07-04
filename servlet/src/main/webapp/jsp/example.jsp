@@ -51,5 +51,16 @@ ${test.valueList}
     <input type="submit" name="button" value="Update">
 </form>
 
+<h3>Delete</h3>
+<p>Удалите файл или все файлы </p>
+<form action="delete" method="post" enctype="multipart/form-data" name="update">
+    <input type="text" name="id" size="3">
+    <select name="deleteType" required>
+        <option value="id">id</option>
+        <option value="all">all</option>
+    </select>
+    <input type="submit" name="button" value="Download">
+</form>
+
 </body>
 </html>

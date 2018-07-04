@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-@MultipartConfig(location = "E:\\Downloads\\java ee\\network\\servlet\\src\\main\\Temp")
+@MultipartConfig(location = "D:\\Html\\network.course\\servlet\\src\\main\\Temp")
 @WebServlet(value = "/update")
 public class UpdateDB extends HttpServlet{
 

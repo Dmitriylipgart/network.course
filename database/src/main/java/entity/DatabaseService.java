@@ -39,7 +39,7 @@ public class DatabaseService {
         }
 
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:E:\\Downloads\\java ee\\network\\database\\src\\main\\resources\\Test.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:D:\\Html\\network.course\\database\\src\\main\\resources\\Test.db");
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }

@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 import java.sql.*;
 
 
-@MultipartConfig(location = "E:\\Downloads\\java ee\\network\\servlet\\src\\main\\Temp")
+@MultipartConfig(location = "D:\\Html\\network.course\\servlet\\src\\main\\Temp")
 @WebServlet(value = "/uploadFile")
 public class UploadToDB extends HttpServlet {
 

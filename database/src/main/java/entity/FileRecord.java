@@ -15,7 +15,7 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
     File file;
     String description;
     InputStream is;
-    String path = "E:\\Downloads\\java ee\\network\\servlet\\src\\files\\file";
+    String path = "D:\\Html\\network.course\\servlet\\src\\files\\file";
 
     public FileRecord() {
     }

@@ -3,10 +3,11 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          version="3.0">
 
-    <welcome-file-list>
-        <!--<welcome-file>html/login.html</welcome-file>-->
-        <welcome-file>/jsp/example.jsp</welcome-file>
-    </welcome-file-list>
+    <!--<welcome-file-list>-->
+        <!--&lt;!&ndash;<welcome-file>html/login.html</welcome-file>&ndash;&gt;-->
+        <!--&lt;!&ndash;<welcome-file>/jsp/example.jsp</welcome-file>&ndash;&gt;-->
+        <!--&lt;!&ndash;<welcome-file>/jsp/jstlTest.jsp</welcome-file>&ndash;&gt;-->
+    <!--</welcome-file-list>-->
     <error-page>
         <error-code>404</error-code>
         <location>/jsp/page_not_found.jsp</location>

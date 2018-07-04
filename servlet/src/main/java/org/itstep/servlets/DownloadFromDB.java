@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-@MultipartConfig(location = "E:\\Downloads\\java ee\\network\\servlet\\src\\main\\Temp")
+@MultipartConfig(location = "D:\\Html\\network.course\\servlet\\src\\main\\Temp")
 @WebServlet(value = "/downloadFile")
 
 public class DownloadFromDB extends HttpServlet{
