@@ -1,22 +1,43 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: МитькаКатька
-  Date: 06.07.2018
-  Time: 18:40
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>Main</title>
 </head>
 <body>
-<c:forEach var="num" items="${myVar}">
-    <p>
-            ${num.keyMap}
-            ${num.valueMap}
-            ${num.valueList}
-    </p>
-</c:forEach>
+
+<%--<c:set var="size" scope="session" value="${size}"/>--%>
+
+
+
+<form action="uploadFile" method="post" enctype="multipart/form-data">
+    <p>Описание файла</p>
+    <input type="text" name="description">
+    <input type="file" name="file">
+    <input type="submit" name="button" value="Upload">
+</form>
+
+<p>${uploadFileResp}</p>
+
+<c:set var="dbSize" scope="session" value="${size}"/>
+
+<c:if test="${dbSize == 0}">
+    <h2>База данных пуста. Загрузите файл.</h2>
+</c:if>
+
+    <c:forEach var="record" items="${records}">
+
+
+
+        <p>
+                ${record.file_id}
+                ${record.file.getPath()}
+                ${record.description}
+                ${record.fileName}
+        </p>
+    </c:forEach>
+
+
 </body>
 </html>

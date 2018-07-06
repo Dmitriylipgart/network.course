@@ -1,11 +1,14 @@
 package org.itstep.servlets;
 
+import entity.FileRecord;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 
 public abstract class DatabaseController extends HttpServlet {
@@ -39,5 +42,13 @@ public abstract class DatabaseController extends HttpServlet {
             }
         }
         return null;
+    }
+
+    void showAllRecords(HttpServletRequest req){
+
+        List<FileRecord> records = new FileRecord().readAll();
+
+        req.setAttribute("size", records.size());
+        req.setAttribute("records", records);
     }
 }

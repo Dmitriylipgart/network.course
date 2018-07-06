@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.*;
+import java.util.List;
 
 
 @MultipartConfig()
@@ -24,7 +25,8 @@ public class UploadToDB extends DatabaseController {
         FileRecord fileRecord = new FileRecord(description, is, fileName);
         fileRecord.createRecord();
         req.setAttribute("uploadFileResp", "Файл "+ fileName + " уcпешно записан в базу данных " + fileRecord.TABLE_NAME);
-        getServletContext().getRequestDispatcher("/jsp/example.jsp").forward(req, resp);
+        showAllRecords(req);
+        getServletContext().getRequestDispatcher("/jsp/main.jsp").forward(req, resp);
     }
 
 }
