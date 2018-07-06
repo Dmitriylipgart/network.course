@@ -8,6 +8,8 @@ import java.sql.Statement;
 public class DatabaseService {
 
     Connection connection;
+    String homePath = "jdbc:sqlite:E:\\network.course\\database\\src\\main\\resources\\Test.db";
+    String studyPath = "jdbc:sqlite:D:\\Java\\network.course\\database\\src\\main\\resources\\Test.db";
 
     public Connection getConnection() {
         createConnection();
@@ -39,7 +41,7 @@ public class DatabaseService {
         }
 
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:D:\\Html\\network.course\\database\\src\\main\\resources\\Test.db");
+            connection = DriverManager.getConnection(homePath);
         } catch (SQLException e) {
             System.err.println(e.getMessage());
         }

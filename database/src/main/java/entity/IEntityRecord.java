@@ -14,6 +14,6 @@ public interface IEntityRecord<T extends IEntityRecord>{
     T read();
     void update();
     void delete();
-    Map<DatabaseField, Object> getFieldsName();
-    Map<String, Class> getFiledWithClass();
+//    Map<DatabaseField, Object> getFieldsName();
+//    Map<String, Class> getFiledWithClass();
 }

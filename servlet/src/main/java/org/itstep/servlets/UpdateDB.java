@@ -1,6 +1,7 @@
 package org.itstep.servlets;
 
 
+import entity.DatabaseService;
 import entity.FileRecord;
 
 import javax.servlet.ServletException;
@@ -14,21 +15,14 @@ import java.io.IOException;
 import java.io.InputStream;
 
 
-@MultipartConfig(location = "D:\\Html\\network.course\\servlet\\src\\main\\Temp")
-@WebServlet(value = "/update")
-public class UpdateDB extends HttpServlet{
+@MultipartConfig()
+@WebServlet(value = "/jsp/update")
+public class UpdateDB extends DatabaseController{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String str = req.getLocalName();
-        String id = req.getParameter("id");
-        String description = req.getParameter("description");
-        Part filePart = req.getPart("file");
-        InputStream is = filePart.getInputStream();
-//       String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-//
-//        File file = new File(req.getSession().getServletContext().getRealPath("/") + "/" + fileName);
+        loadFile(req);
         FileRecord fileRecord = new FileRecord(id, description, is);
         fileRecord.update();
         getServletContext().getRequestDispatcher("/jsp/example.jsp").forward(req,resp);

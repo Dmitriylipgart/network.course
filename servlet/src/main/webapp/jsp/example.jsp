@@ -30,6 +30,10 @@ ${test.valueList}
     <input type="file" name="file">
     <input type="submit" name="button" value="Upload">
 </form>
+
+<p>${uploadFileResp}</p>
+
+
 <h3>Read</h3>
 <p>Скачайте файл (с определенным id) или все файлы из таблицы</p>
 

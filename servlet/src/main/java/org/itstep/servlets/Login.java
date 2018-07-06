@@ -22,7 +22,7 @@ public class Login extends HttpServlet {
         if ((login.compareTo(LOGIN) !=0) || (password.compareTo(PASSWORD) !=0)){
             resp.sendRedirect("html/fail.html");
         } else {
-            resp.sendRedirect("html/File.html");
+            resp.sendRedirect("jsp/example.jsp");
         }
 
 

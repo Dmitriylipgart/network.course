@@ -21,10 +21,10 @@ public class LoginRecord extends AbstractIEntityRecord<LoginRecord> {
 
     }
 
-    @Override
-    public Map<DatabaseField, Object> getFieldsName() {
-        return null;
-    }
+//    @Override
+//    public Map<DatabaseField, Object> getFieldsName() {
+//        return null;
+//    }
 
     private static final String TABLE_NAME = "login";
 

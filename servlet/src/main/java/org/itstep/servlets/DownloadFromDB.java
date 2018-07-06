@@ -12,10 +12,11 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-@MultipartConfig(location = "D:\\Html\\network.course\\servlet\\src\\main\\Temp")
-@WebServlet(value = "/downloadFile")
+//@MultipartConfig(location = "D:\\Html\\network.course\\servlet\\src\\main\\Temp")
+@MultipartConfig()
+@WebServlet(value = "/jsp/downloadFile")
 
-public class DownloadFromDB extends HttpServlet{
+public class DownloadFromDB extends DatabaseController{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

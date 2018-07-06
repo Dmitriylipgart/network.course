@@ -14,10 +14,20 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
     String file_id;
     File file;
     String description;
+    String fileName;
+
+
     InputStream is;
-    String path = "D:\\Html\\network.course\\servlet\\src\\files\\file";
+    String path = "E:\\network.course\\servlet\\src\\files\\";
 
     public FileRecord() {
+    }
+
+    public FileRecord(String description, InputStream is, String fileName) {
+        this.file_id = file_id;
+        this.description = description;
+        this.fileName = fileName;
+        this.is = is;
     }
 
     public FileRecord(String file_id) {
@@ -60,30 +70,38 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
         this.description = description;
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
 
     public String getTableName() {
         return TABLE_NAME;
     }
 
 
-    public Map<DatabaseField, Object> getFieldsName() {
-        return null;
-    }
-
-
-    public Map<String, Class> getFiledWithClass() {
-        Map<String, Class> map = new HashMap<>();
-        map.put("file_id", Integer.class);
-        map.put("file", String.class);
-        map.put("description", String.class);
-        return map;
-    }
+//    public Map<DatabaseField, Object> getFieldsName() {
+//        return null;
+//    }
+//
+//
+//    public Map<String, Class> getFiledWithClass() {
+//        Map<String, Class> map = new HashMap<>();
+//        map.put("file_id", Integer.class);
+//        map.put("file", String.class);
+//        map.put("description", String.class);
+//        return map;
+//    }
 
 
     public void createRecord()  {
 
-        String sql = "Insert into files (file, description) " //
-                + " values (?,?) ";
+        String sql = "Insert into files (file, description, file_name)" //
+                + " values (?,?,?)";
 
         byte[] bytes = getByteArray(is);
 
@@ -91,6 +109,7 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setBytes(1,  bytes);
             statement.setString(2, description);
+            statement.setString(3, fileName);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -143,6 +162,7 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
                 FileRecord fileRecord = new FileRecord();
                 fileRecord.setDescription(resultSet.getString("description"));
                 fileRecord.setFileId(resultSet.getString("file_id"));
+                fileRecord.setFileName(resultSet.getString("file_name"));
                 fileRecord.setFile(resultSet.getBinaryStream("file"));
                 collections.add(fileRecord);
             }
@@ -160,6 +180,7 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
             fileRecord.setFileId(resultSet.getString("file_id"));
             fileRecord.setDescription(resultSet.getString("description"));
             fileRecord.setFile(resultSet.getBinaryStream("file"));
+            fileRecord.setFileName(resultSet.getString("file_name"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -168,7 +189,13 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
 
     public File writeToFile(InputStream is){
 
-        File file = new File(path  + file_id + ".jpg");
+        int i = 0;
+        String filePath = path + fileName;
+        File file = new File(filePath);
+
+        while (file.exists()){
+            file = new File(filePath.substring(0, filePath.lastIndexOf(".")) + ++i + filePath.substring(filePath.lastIndexOf(".")));
+        }
 
         try {
             FileOutputStream fos = new FileOutputStream(file);
