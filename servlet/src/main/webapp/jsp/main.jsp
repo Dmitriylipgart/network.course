@@ -30,12 +30,16 @@
 
 
 
-        <p>
-                ${record.file_id}
-                ${record.file.getPath()}
-                ${record.description}
-                ${record.fileName}
-        </p>
+        <p>${record.file_id}</p>
+        <p>${record.file.getPath()}</p>
+        <p>${record.description}</p>
+        <p>${record.fileName}</p>
+
+
+
+
+
+
     </c:forEach>
 
 

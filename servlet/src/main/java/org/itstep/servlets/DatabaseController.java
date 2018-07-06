@@ -47,7 +47,6 @@ public abstract class DatabaseController extends HttpServlet {
     void showAllRecords(HttpServletRequest req){
 
         List<FileRecord> records = new FileRecord().readAll();
-
         req.setAttribute("size", records.size());
         req.setAttribute("records", records);
     }
