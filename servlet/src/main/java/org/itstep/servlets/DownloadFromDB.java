@@ -20,7 +20,7 @@ public class DownloadFromDB extends DatabaseController{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
+        String id = req.getParameter("file_id");
         String downloadType = req.getParameter("downloadType");
 
         if (downloadType.equals("all")){

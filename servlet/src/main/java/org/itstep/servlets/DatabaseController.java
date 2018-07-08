@@ -13,7 +13,7 @@ import java.util.List;
 
 public abstract class DatabaseController extends HttpServlet {
     String str;
-    String id;
+    String file_id;
     String description;
     Part filePart;
     String fileName;
@@ -23,7 +23,7 @@ public abstract class DatabaseController extends HttpServlet {
     void loadFile(HttpServletRequest req) throws ServletException, IOException{
 
         str = req.getLocalName();
-        id = req.getParameter("id");
+        file_id = req.getParameter("file_id");
         description = req.getParameter("description");
         filePart = req.getPart("file");
         is = filePart.getInputStream();

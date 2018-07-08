@@ -25,7 +25,7 @@
             <input type="text" name="description" class="input username" placeholder="Описание файла">
             <input type="file" name="file" style="display: none" id="fileUploadButton">
             <label for="fileUploadButton" class="button">Выбрать</label>
-            <input type="submit" class="button">
+            <input type="submit" class="button" value="Загрузить">
         </div>
 
     </form>
@@ -34,10 +34,6 @@
 
 
 <c:set var="dbSize" scope="session" value="${size}"/>
-
-<c:if test="${dbSize == 0}">
-    <h2>База данных пуста. Загрузите файл.</h2>
-</c:if>
 
 <table>
     <tr>
@@ -53,10 +49,11 @@
             <td>${record.description}</td>
             <td><a href="${record.getPathForPage()}" download><i class="fas fa-arrow-alt-circle-down"></i></a></td>
             <td>
-                <form action="delete">
-                    <input type="text" name="id" style="display: none" value="${record.file_id}">
-                    <input type="submit" id="deleteButton" style="display: none">
-                    <label for="deleteButton"><i class="fas fa-arrow-alt-circle-down"></i></label>
+                <form action="delete" method="post" enctype="multipart/form-data">
+                    <input type="text" name="file_id"  value="${record.file_id}" style="display: none">
+                    <input type="text" name="fileName"  value="${record.fileName}" style="display: none">
+                    <input type="submit" id="deleteButton + ${record.file_id}" style="display: none">
+                    <label for="deleteButton + ${record.file_id}"><i class="fas fa-times-circle"></i></label>
                 </form>
             </td>
         </tr>
