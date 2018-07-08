@@ -18,7 +18,7 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
 
 
     InputStream is;
-    String path = "E:\\network.course\\servlet\\src\\files\\";
+    String path = "E:\\network.course\\servlet\\src\\main\\webapp\\files\\";
 
     public FileRecord() {
     }
@@ -86,6 +86,11 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
 
     public String getTableName() {
         return TABLE_NAME;
+    }
+
+
+    public String getPathForPage(){
+        return "/files/" + fileName;
     }
 
 
@@ -184,9 +189,14 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
         File file = new File(path + fileName);
 
         while (file.exists()){
-            fileName = fileName.substring(0, fileName.lastIndexOf(".")) + ++i + fileName.substring(fileName.lastIndexOf("."));
-            file = new File(path + fileName);
+            if(i == 0) {
+                fileName = fileName.substring(0, fileName.lastIndexOf(".")) + "(" + ++i + ")" + fileName.substring(fileName.lastIndexOf("."));
 
+            } else {
+                fileName = fileName.substring(0, fileName.lastIndexOf("(") + 1 ) +  ++i + ")" + fileName.substring(fileName.lastIndexOf("."));
+
+            }
+            file = new File(path + fileName);
         }
 
         try {
