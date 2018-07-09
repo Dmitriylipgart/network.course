@@ -16,13 +16,17 @@ public class Login extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getSession().setAttribute("auth", "false");
         String login = req.getParameter("name");
         String password = req.getParameter("password");
 
         if ((login.compareTo(LOGIN) !=0) || (password.compareTo(PASSWORD) !=0)){
-            resp.sendRedirect("html/fail.html");
+            req.setAttribute("AuthError", "Неверный логин или пароль");
+            getServletContext().getRequestDispatcher("/jsp/login.jsp").forward(req,resp);
         } else {
+            req.getSession().setAttribute("auth", "true");
             resp.sendRedirect("/jsp/showfilelist");
+
         }
 
 

@@ -20,6 +20,7 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
     InputStream is;
     String path = "E:\\network.course\\servlet\\src\\main\\webapp\\files\\";
 
+
     public FileRecord() {
     }
 
