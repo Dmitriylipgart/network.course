@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebFilter(urlPatterns = "/*")
-public class servletFilter implements Filter{
+public class ServletFilter implements Filter{
 
 
     @Override
